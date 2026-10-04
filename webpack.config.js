@@ -6,6 +6,16 @@ require('dotenv').config();
 module.exports = (env = {}) => {
   const isGitHubPages = Boolean(env.githubPages);
 
+  if (
+    isGitHubPages
+    && (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY)
+  ) {
+    throw new Error(
+      'GitHub Pages builds require SUPABASE_URL and SUPABASE_ANON_KEY. '
+      + 'Configure them as GitHub Actions variables or secrets.'
+    );
+  }
+
   return {
     entry: './src/app.js',
     output: {

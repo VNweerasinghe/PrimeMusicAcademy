@@ -92,7 +92,7 @@ The `student_reviews` table has `id`, `display_name`, `rating`, `review`, `conse
 ### Configuration and security boundary
 
 - Copy `.env.example` to `.env` and configure `SUPABASE_URL` plus `SUPABASE_ANON_KEY` with the project's public URL and anon/publishable key.
-- For GitHub Pages, configure repository Actions variables with those same names; the deploy workflow passes them to the Pages build.
+- For GitHub Pages, configure repository Actions variables or secrets with those same names; the deploy workflow passes them to the Pages build and refuses to build if either value is absent.
 - Webpack exposes only those two public configuration values to browser code. The public key is not a secret; the Supabase service-role key must never be placed in this app or its built assets.
 - `.env` and other `.env.*` files are ignored by Git, with `.env.example` explicitly allowed.
 - The schema is in `supabase/schema.sql`; setup steps and operational caveats are in `supabase/setup.md`.

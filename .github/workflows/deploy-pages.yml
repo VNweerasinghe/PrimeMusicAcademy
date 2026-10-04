@@ -18,6 +18,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SUPABASE_URL: ${{ vars.SUPABASE_URL || secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY || secrets.SUPABASE_ANON_KEY }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -28,11 +31,11 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Check review service configuration
+        run: |
+          node -e "const missing = ['SUPABASE_URL', 'SUPABASE_ANON_KEY'].filter(name => !process.env[name]?.trim()); if (missing.length) { console.error('Missing GitHub Actions variables/secrets: ' + missing.join(', ')); process.exit(1); }"
       - name: Build site
         run: npm run build:pages
-        env:
-          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact

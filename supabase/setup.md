@@ -12,7 +12,10 @@
 For GitHub Pages deployments, add repository Actions variables named
 `SUPABASE_URL` and `SUPABASE_ANON_KEY` under **Settings → Secrets and variables
 → Actions → Variables**. The Pages workflow passes these values to the build.
-They are public browser configuration, so use the anon/publishable key only.
+The workflow also accepts Actions secrets with the same names. They are public
+browser configuration, so use the anon/publishable key only. The deployment
+build now stops with an explicit error if either value is missing rather than
+publishing a site whose review service is disconnected.
 
 Only use the public anon/publishable key in the website. Never put a Supabase
 `service_role` or secret key in `.env` for this app or in any client-side bundle.

@@ -23,7 +23,7 @@ npm start
 
 The development server runs at `http://localhost:3000`. To enable Supabase reviews locally, copy `.env.example` to `.env` and use the public project URL and anon/publishable key. Never use a service-role or secret key in this client application.
 
-For GitHub Pages reviews, configure the `SUPABASE_URL` and `SUPABASE_ANON_KEY` repository Actions variables. See [the Supabase setup guide](./supabase/setup.md).
+For GitHub Pages reviews, configure `SUPABASE_URL` and `SUPABASE_ANON_KEY` as repository Actions variables (or secrets). See [the Supabase setup guide](./supabase/setup.md).
 
 ## Build and test
 
