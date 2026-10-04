@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import academyLogo from '../assets/images/hero.webp';
 import '../styles/navigation.css';
 
 const Navigation = () => {
@@ -40,7 +41,7 @@ const Navigation = () => {
         <nav className="navbar" aria-label="Main navigation">
             <div className="nav-container">
                 <Link to="/" className="nav-logo" aria-label="Prime Music Academy">
-                    <span className="logo-icon">♪</span>
+                    <img className="logo-image" src={academyLogo} alt="" />
                     <span className="logo-text">Prime Music Academy</span>
                 </Link>
 

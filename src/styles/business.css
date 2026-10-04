@@ -153,6 +153,16 @@ textarea:focus-visible {
     display: inline;
 }
 
+.logo-image {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 2.5rem;
+    border-radius: 6px;
+    background: #17232a;
+    object-fit: cover;
+}
+
 .logo-icon {
     color: var(--accent-color);
     font-size: 1.45rem;
@@ -266,6 +276,10 @@ textarea:focus-visible {
     font-size: clamp(2.5rem, 5.3vw, 4.35rem);
     font-weight: 600;
     line-height: 1.08;
+}
+
+.hero h1 {
+    padding-top: 0;
 }
 
 .hero-subtitle {
@@ -549,6 +563,10 @@ textarea:focus-visible {
     margin: 0 0 1rem;
     color: var(--text-secondary);
     font-size: 0.94rem;
+}
+
+.course-card .text-link {
+    margin-top: auto;
 }
 
 .course-duration {
@@ -1042,6 +1060,39 @@ textarea:focus-visible {
     .schedule-fields,
     .footer-content {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav-container {
+        width: calc(100% - 1.25rem);
+    }
+
+    .nav-logo {
+        gap: 0.4rem;
+        font-size: 0.85rem;
+    }
+
+    .logo-image {
+        width: 2rem;
+        height: 2rem;
+        flex-basis: 2rem;
+    }
+
+    .nav-actions {
+        gap: 0.25rem;
+    }
+
+    .theme-toggle {
+        padding: 0.3rem 0.4rem;
+    }
+
+    .theme-toggle-label {
+        display: none;
+    }
+
+    .nav-toggle {
+        padding: 0.4rem;
     }
 }
 

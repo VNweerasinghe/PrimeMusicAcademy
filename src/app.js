@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 const Home = lazy(() => import('./pages/Home'));
 const Tutors = lazy(() => import('./pages/Tutors'));
 const Courses = lazy(() => import('./pages/Courses'));
@@ -13,12 +14,14 @@ import './styles/forms.css';
 import './styles/buttons.css';
 import './styles/pages.css';
 import './styles/business.css';
+import './styles/floating-whatsapp.css';
 
 const Router = process.env.GITHUB_PAGES ? HashRouter : BrowserRouter;
 
 const App = () => {
   return (
     <Router>
+      <FloatingWhatsApp />
       <Suspense fallback={<div className="route-loading" role="status">Loading page…</div>}>
         <Switch>
           <Route exact path="/" component={Home} />
