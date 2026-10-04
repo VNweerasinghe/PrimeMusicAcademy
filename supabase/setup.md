@@ -4,7 +4,9 @@
 2. In the Supabase dashboard, open **SQL Editor**, paste the contents of
    [`schema.sql`](./schema.sql), and run it.
 3. Copy `.env.example` to `.env` in the project root. Set:
-   - `SUPABASE_URL` to the Project URL from **Project Settings → API**.
+   - `SUPABASE_URL` to the **Project URL** from **Project Settings → API**
+     (for this project: `https://fhjytadmbgdmgbftpusq.supabase.co`). Do not use
+     the Supabase dashboard page URL from your browser address bar.
    - `SUPABASE_ANON_KEY` to the public anon/publishable key from the same page.
 4. Restart the development server or rebuild/redeploy the site so the values are
    included in the client bundle.

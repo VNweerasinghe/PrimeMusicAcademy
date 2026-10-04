@@ -16,6 +16,32 @@ module.exports = (env = {}) => {
     );
   }
 
+  if (isGitHubPages) {
+    let supabaseUrl;
+
+    try {
+      supabaseUrl = new URL(process.env.SUPABASE_URL);
+    } catch (error) {
+      throw new Error(
+        'SUPABASE_URL must be the Supabase project API URL, '
+        + 'for example https://<project-ref>.supabase.co.'
+      );
+    }
+
+    if (
+      supabaseUrl.protocol !== 'https:'
+      || supabaseUrl.hostname === 'supabase.com'
+      || supabaseUrl.pathname !== '/'
+      || supabaseUrl.search
+      || supabaseUrl.hash
+    ) {
+      throw new Error(
+        'SUPABASE_URL must be the Supabase project API URL, '
+        + 'for example https://<project-ref>.supabase.co, not a dashboard URL.'
+      );
+    }
+  }
+
   return {
     entry: './src/app.js',
     output: {
