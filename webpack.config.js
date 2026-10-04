@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+require('dotenv').config();
 
 module.exports = (env = {}) => {
   const isGitHubPages = Boolean(env.githubPages);
@@ -39,7 +40,9 @@ module.exports = (env = {}) => {
     },
     plugins: [
       new webpack.DefinePlugin({
-        'process.env.GITHUB_PAGES': JSON.stringify(isGitHubPages)
+        'process.env.GITHUB_PAGES': JSON.stringify(isGitHubPages),
+        'process.env.SUPABASE_URL': JSON.stringify(process.env.SUPABASE_URL || ''),
+        'process.env.SUPABASE_ANON_KEY': JSON.stringify(process.env.SUPABASE_ANON_KEY || '')
       }),
       new HtmlWebpackPlugin({
         template: './public/index.html'

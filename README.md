@@ -1,44 +1,43 @@
 # Prime Music Academy
 
-A React website for Prime Music Academy's music tuition services in Colombo.
+Responsive React website for Prime Music Academy's music tuition services in Colombo.
 
-## Website features
+## Features
 
-- Instructor profile and qualifications.
-- Course descriptions without unconfirmed fees.
-- Lesson and contact inquiries that open WhatsApp with a pre-filled message for the visitor to review and send.
-- Responsive navigation and a not-found page.
-- Course-specific inquiries, lesson-length choices, and answers to common questions.
+- Home, instructor, courses, lesson-request, and contact pages.
+- Responsive image carousel, light/dark theme, and mobile navigation.
+- WhatsApp links for inquiries; requests are sent by the visitor and confirmed by the instructor.
+- Public student reviews backed by Supabase, with realtime updates and a review form in a modal.
+- Mobile-friendly floating WhatsApp shortcut.
 
-Visitors can request 45-minute, 1-hour, or 2-hour lessons. Lesson requests are inquiries, not confirmed appointments; the instructor must confirm availability directly. The website does not store inquiry details.
+The site does not accept or store lesson bookings or payments. See [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md) for the current architecture, UI behavior, integrations, and maintenance notes. For the Supabase review setup, see [supabase/setup.md](./supabase/setup.md).
 
 ## Run locally
 
-Requirements: Node.js and npm.
+Requirements: Node.js 20 and npm.
 
 ```bash
-npm install
+npm ci
 npm start
 ```
 
-The development server runs at `http://localhost:3000`.
+The development server runs at `http://localhost:3000`. To enable Supabase reviews locally, copy `.env.example` to `.env` and use the public project URL and anon/publishable key. Never use a service-role or secret key in this client application.
 
-## Build
+For GitHub Pages reviews, configure the `SUPABASE_URL` and `SUPABASE_ANON_KEY` repository Actions variables. See [the Supabase setup guide](./supabase/setup.md).
+
+## Build and test
 
 ```bash
+npm test -- --runInBand
 npm run build
 ```
 
-The production bundle is written to `dist/`.
-
-## Deploy to GitHub Pages
-
-The GitHub Actions workflow in `.github/workflows/deploy-pages.yml` builds and deploys the site whenever changes are pushed to `main`. To enable it, set the repository's Pages source to **GitHub Actions** under **Settings → Pages**. You can also run the workflow manually from the repository's **Actions** tab.
-
-The Pages build uses hash-based routes, so direct page navigation and refreshes work on the repository site. Build it locally with:
+`npm run build` writes production files to `dist/`. The GitHub Pages build writes to `dist-pages/`:
 
 ```bash
 npm run build:pages
 ```
 
-This writes the deployable site to `dist-pages/`.
+## Deploy to GitHub Pages
+
+The workflow at `.github/workflows/deploy-pages.yml` builds and deploys on pushes to `main` and can also be started manually. Set the repository's Pages source to **GitHub Actions** under **Settings → Pages**. The Pages build uses hash-based routing so pages work when hosted under a repository path.

@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
+import StudentFeedback from '../components/StudentFeedback';
 import { contact, instructor } from '../data/siteData';
 import tutorImage from '../assets/images/tutor.jpg';
 import { createWhatsAppLink } from '../utils/whatsapp';
@@ -50,6 +51,8 @@ const Home = () => (
                     <p>Personalized tuition for students at different stages of learning.</p>
                 </article>
             </section>
+
+            <StudentFeedback />
 
             <section className="faq-section" aria-labelledby="faq-heading">
                 <div className="faq-heading">
