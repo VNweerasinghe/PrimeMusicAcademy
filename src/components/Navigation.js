@@ -41,7 +41,7 @@ const Navigation = () => {
             <div className="nav-container">
                 <Link to="/" className="nav-logo" aria-label="Prime Music Academy">
                     <span className="logo-icon">♪</span>
-                    <span className="logo-text">Prime Music</span>
+                    <span className="logo-text">Prime Music Academy</span>
                 </Link>
 
                 <ul id="primary-navigation" className={`nav-menu ${isOpen ? 'active' : ''}`}>

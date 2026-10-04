@@ -2,9 +2,9 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import HeroCarousel from '../components/HeroCarousel';
 import { contact, instructor } from '../data/siteData';
 import tutorImage from '../assets/images/tutor.jpg';
-import heroImage from '../assets/images/hero.webp';
 import { createWhatsAppLink } from '../utils/whatsapp';
 
 const recommendationLink = createWhatsAppLink(
@@ -31,16 +31,7 @@ const Home = () => (
                         </div>
                     </div>
                     <div className="hero-visual">
-                        <div className="hero-image-wrapper">
-                            <img
-                                src={heroImage}
-                                alt="Prime Music Academy music emblem"
-                                width="1024"
-                                height="1024"
-                                decoding="async"
-                                className="hero-image"
-                            />
-                        </div>
+                        <HeroCarousel />
                     </div>
                 </div>
             </section>

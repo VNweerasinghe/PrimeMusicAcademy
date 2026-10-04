@@ -932,6 +932,14 @@ textarea:focus-visible {
         width: calc(100% - 2rem);
     }
 
+    .logo-text {
+        display: inline;
+    }
+
+    .nav-logo {
+        font-size: 1rem;
+    }
+
     .nav-actions {
         gap: 0.5rem;
     }
