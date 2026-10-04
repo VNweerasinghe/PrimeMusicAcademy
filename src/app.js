@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
 const Home = lazy(() => import('./pages/Home'));
 const Tutors = lazy(() => import('./pages/Tutors'));
 const Courses = lazy(() => import('./pages/Courses'));
@@ -13,6 +13,8 @@ import './styles/forms.css';
 import './styles/buttons.css';
 import './styles/pages.css';
 import './styles/business.css';
+
+const Router = process.env.GITHUB_PAGES ? HashRouter : BrowserRouter;
 
 const App = () => {
   return (
