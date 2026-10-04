@@ -1,31 +1,28 @@
-export const tutors = [
-    {
-        id: 1,
-        name: "Sarah Johnson",
-        instrument: "Piano",
-        experience: "15 years",
-        image: "https://images.unsplash.com/photo-1520785643438-5bf77931f493",
-        bio: "Classical pianist with Royal Academy background",
-        specialties: ["Classical", "Jazz", "Contemporary"]
-    },
-    {
-        id: 2,
-        name: "Michael Chen",
-        instrument: "Guitar",
-        experience: "12 years",
-        image: "https://images.unsplash.com/photo-1544717305-2782549b5136",
-        bio: "Contemporary and jazz guitar specialist",
-        specialties: ["Blues", "Jazz", "Rock"]
-    },
-    {
-        id: 3,
-        name: "Emma Davis",
-        instrument: "Violin",
-        experience: "10 years",
-        image: "https://images.unsplash.com/photo-1531170476104-ca633f9b6b7d",
-        bio: "Orchestra performer and dedicated teacher",
-        specialties: ["Classical", "Chamber Music"]
-    }
+export const instructor = {
+    name: "Mr. Rashmika",
+    bio: "A 28-year-old graduate and London-qualified music teacher with 8 years of experience, offering friendly, personalized home-visit lessons across Colombo suburbs and leading apartments for students of all ages.",
+    credentials: [
+        "B.A. (Hons) in Western Music",
+        "M.Mus (Kelaniya) - ongoing",
+        "ATCL (London)",
+        "ABRSM Grade 8 (London)",
+        "Registered Teacher - IWMS & Trinity College London",
+        "Registered Teacher - ABRSM London"
+    ]
+};
+
+export const contact = {
+    location: "Colombo, Sri Lanka",
+    phone: "+94 77 378 0121",
+    phoneHref: "tel:+94773780121",
+    whatsappNumber: "94773780121",
+    whatsappHref: "https://wa.me/94773780121"
+};
+
+export const lessonDurations = [
+    { value: "45 minutes", label: "45 minutes" },
+    { value: "1 hour", label: "1 hour" },
+    { value: "2 hours", label: "2 hours" }
 ];
 
 export const courses = [
@@ -33,8 +30,6 @@ export const courses = [
         id: 1,
         title: "Beginner Piano Fundamentals",
         description: "Master the basics of piano playing through structured lessons and practice routines",
-        price: "$299",
-        duration: "8 weeks",
         level: "Beginner",
         instrument: "Piano"
     },
@@ -42,8 +37,6 @@ export const courses = [
         id: 2,
         title: "Advanced Guitar Techniques",
         description: "Take your guitar skills to the next level with advanced chord progressions and soloing",
-        price: "$349",
-        duration: "10 weeks",
         level: "Advanced",
         instrument: "Guitar"
     },
@@ -51,8 +44,6 @@ export const courses = [
         id: 3,
         title: "Classical Violin Training",
         description: "Learn classical violin repertoire and perfect your bowing technique",
-        price: "$399",
-        duration: "12 weeks",
         level: "Intermediate",
         instrument: "Violin"
     }

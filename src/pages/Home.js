@@ -1,63 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ThemeSwitcher from '../components/ThemeSwitcher';
 import Button from '../components/Button';
-import { tutors, courses } from '../data/siteData';
+import { contact, instructor } from '../data/siteData';
 import tutorImage from '../assets/images/tutor.jpg';
-import heroImage from '../assets/images/hero.jpg';
+import heroImage from '../assets/images/hero.webp';
+import { createWhatsAppLink } from '../utils/whatsapp';
 
-const Home = () => {
-    const [scrollY, setScrollY] = useState(0);
+const recommendationLink = createWhatsAppLink(
+    contact.whatsappNumber,
+    'Hello, I’d appreciate a recommendation on which music course and lesson length might suit my experience and goals.'
+);
 
-    useEffect(() => {
-        const handleScroll = () => setScrollY(window.scrollY);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+const Home = () => (
+    <div className="home-container">
+        <Header />
 
-    return (
-        <div className="home-container">
-            <Header />
-            
+        <main id="main-content">
             <section className="hero">
-                <div className="hero-bg-animation"></div>
-                <div className="hero-content" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+                <div className="hero-content">
                     <div className="hero-text">
-                        <div className="animated-heading">
-                            <div className="title-container">
-                                <h1 className="main-title">
-                                    <div className="title-line">
-                                        <span className="gradient-text">Discover</span>
-                                    </div>
-                                    <div className="title-line">
-                                        <span className="highlight-text">Your Musical Journey</span>
-                                    </div>
-                                </h1>
-                                <div className="academy-title">
-                                    <span className="with-text">with</span>
-                                    <div className="brand-wrapper">
-                                        <span className="brand-name">Prime Music Academy</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <p className="eyebrow">Music tuition in Colombo</p>
+                        <h1>Build Confidence Through Music</h1>
+                        <p className="hero-subtitle">
+                            Personal, one-to-one music lessons for learners of all ages, taught at home across Colombo suburbs.
+                        </p>
+                        <div className="hero-actions">
+                            <Button href="/schedule" variant="primary" size="large">Request a lesson</Button>
+                            <Button href="/courses" variant="secondary" size="large">Explore courses</Button>
                         </div>
-                        <p className="hero-subtitle">Learn from world-class musicians and unleash your potential</p>
-                        <Button 
-                            href="/courses"
-                            variant="primary"
-                            size="large"
-                            icon="→"
-                            iconPosition="right"
-                        >
-                            Start Learning Today
-                        </Button>
                     </div>
                     <div className="hero-visual">
                         <div className="hero-image-wrapper">
-                            <img 
-                                src={heroImage} 
-                                alt="Music Education" 
+                            <img
+                                src={heroImage}
+                                alt="Prime Music Academy music emblem"
+                                width="1024"
+                                height="1024"
+                                decoding="async"
                                 className="hero-image"
                             />
                         </div>
@@ -65,99 +45,79 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Featured Courses Section */}
-            <section className="featured">
-                <div className="section-header">
-                    <h2>Featured Courses</h2>
-                    <p>Master your musical skills with our premium courses</p>
+            <section className="service-highlights" aria-label="Lesson information">
+                <article>
+                    <h2>One-to-one teaching</h2>
+                    <p>Friendly, personal support shaped around each learner’s goals and pace.</p>
+                </article>
+                <article>
+                    <h2>Lessons at home</h2>
+                    <p>Home visits are available across Colombo suburbs and leading apartments.</p>
+                </article>
+                <article>
+                    <h2>For all ages</h2>
+                    <p>Personalized tuition for students at different stages of learning.</p>
+                </article>
+            </section>
+
+            <section className="faq-section" aria-labelledby="faq-heading">
+                <div className="faq-heading">
+                    <p className="eyebrow">Good to know</p>
+                    <h2 id="faq-heading">A few things students often ask</h2>
                 </div>
-                <div className="course-grid">
-                    {courses.slice(0, 3).map((course, index) => (
-                        <div 
-                            className="course-card premium-card" 
-                            key={course.id}
-                            style={{ 
-                                animationDelay: `${index * 0.15}s`
-                            }}
-                        >
-                            <div className="course-header">
-                                <span className="course-level-badge">{course.level}</span>
-                            </div>
-                            <h3>{course.title}</h3>
-                            <p className="course-description">{course.description}</p>
-                            <div className="course-meta">
-                                <span className="duration">⏱️ {course.duration}</span>
-                                <span className="price">{course.price}</span>
-                            </div>
-                            <Button 
-                                href="/courses"
-                                variant="primary"
-                                size="medium"
-                                fullWidth
-                                icon="→"
-                                iconPosition="right"
-                            >
-                                Explore
-                            </Button>
-                        </div>
-                    ))}
+                <div className="faq-list">
+                    <details>
+                        <summary>How long are the lessons?</summary>
+                        <p>Choose a 45-minute, 1-hour, or 2-hour lesson when you send a request. The instructor will confirm the arrangement with you.</p>
+                    </details>
+                    <details>
+                        <summary>What is the teaching approach like?</summary>
+                        <p>The instructor offers friendly, personalized guidance and adapts lessons to the student’s age, experience, and learning goals.</p>
+                    </details>
+                    <details>
+                        <summary>Can I get help choosing a course?</summary>
+                        <p>Yes. Share your musical experience and goals on WhatsApp and ask the instructor for a course recommendation.</p>
+                        <a className="text-link" href={recommendationLink} target="_blank" rel="noopener noreferrer">
+                            Ask for a recommendation <span aria-hidden="true">→</span>
+                        </a>
+                    </details>
+                    <details>
+                        <summary>Where are home visits available?</summary>
+                        <p>Home visits are available across Colombo suburbs and leading apartments. Ask on WhatsApp whether your area is covered.</p>
+                    </details>
                 </div>
             </section>
 
-            {/* Instructor Section */}
-            <section className="tutor-intro premium-section">
+            <section className="tutor-intro" aria-labelledby="instructor-heading">
                 <div className="tutor-intro-content">
                     <div className="tutor-image-container">
-                        <div className="image-frame">
-                            <img 
-                                src={tutorImage} 
-                                alt="Mr. Rashmika" 
-                                className="tutor-profile-image" 
-                            />
-                        </div>
+                        <img
+                            src={tutorImage}
+                            alt="Music instructor Mr. Rashmika"
+                            width="947"
+                            height="960"
+                            decoding="async"
+                            className="tutor-profile-image"
+                            loading="lazy"
+                        />
                     </div>
                     <div className="tutor-info">
-                        <h2>Meet Your Instructor</h2>
-                        <div className="tutor-name">Mr. Rashmika</div>
-                        <p className="tutor-brief">
-                            A 28-year-old Graduate & London-qualified music teacher with 8 years of experience, 
-                            providing personalized home visit lessons across Colombo suburbs and leading apartments 
-                            for students of all ages.
-                        </p>
-                        <div className="credentials-grid">
-                            <div className="credential-item">
-                                <span className="credential-icon">🎓</span>
-                                <span>B.A (Hons) in Western Music</span>
-                            </div>
-                            <div className="credential-item">
-                                <span className="credential-icon">📚</span>
-                                <span>M.Mus (Kelaniya) - Ongoing</span>
-                            </div>
-                            <div className="credential-item">
-                                <span className="credential-icon">🏆</span>
-                                <span>ATCL (London)</span>
-                            </div>
-                            <div className="credential-item">
-                                <span className="credential-icon">🎼</span>
-                                <span>ABRSM Grade 8 (London)</span>
-                            </div>
-                            <div className="credential-item">
-                                <span className="credential-icon">✨</span>
-                                <span>Registered Teacher - IWMS & Trinity College London</span>
-                            </div>
-                            <div className="credential-item">
-                                <span className="credential-icon">📋</span>
-                                <span>Registered Teacher - ABRSM London</span>
-                            </div>
-                        </div>
+                        <p className="eyebrow">Your instructor</p>
+                        <h2 id="instructor-heading">{instructor.name}</h2>
+                        <p className="tutor-brief">{instructor.bio}</p>
+                        <ul className="credentials-list">
+                            {instructor.credentials.map(credential => (
+                                <li key={credential}>{credential}</li>
+                            ))}
+                        </ul>
+                        <Button href="/tutors" variant="secondary">View instructor profile</Button>
                     </div>
                 </div>
             </section>
+        </main>
 
-            <ThemeSwitcher />
-            <Footer />
-        </div>
-    );
-};
+        <Footer />
+    </div>
+);
 
 export default Home;

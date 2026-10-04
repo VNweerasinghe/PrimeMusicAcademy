@@ -1139,9 +1139,6 @@ nav a:hover {
     100% { transform: scale(1); }
 }
 
-/* Make sure to add the font import if not already present */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 /* Page Container */
 .page-container {
     min-height: 100vh;

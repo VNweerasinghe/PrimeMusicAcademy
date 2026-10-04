@@ -1,24 +1,21 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ThemeSwitcher from '../components/ThemeSwitcher';
 import LessonScheduler from '../components/LessonScheduler';
 
-const Schedule = () => {
-    return (
-        <div className="page-container">
-            <nav className="glass-nav">
-                <Header />
-            </nav>
-            <div className="schedule-page">
-                <h1>Available Lesson Times</h1>
-                <p>Schedule your music lessons at a time that works best for you.</p>
-                <LessonScheduler />
-            </div>
-            <ThemeSwitcher />
-            <Footer />
-        </div>
-    );
-};
+const Schedule = () => (
+    <div className="page-container">
+        <Header />
+        <main id="main-content" className="schedule-page">
+            <header className="page-header">
+                <p className="eyebrow">Start learning</p>
+                <h1>Request a lesson</h1>
+                <p>Choose a course, lesson length, and preferred time. Your request opens in WhatsApp for the instructor to review and confirm.</p>
+            </header>
+            <LessonScheduler />
+        </main>
+        <Footer />
+    </div>
+);
 
 export default Schedule;

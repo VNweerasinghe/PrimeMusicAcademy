@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/buttons.css';
 
 const Button = ({ 
@@ -39,6 +40,14 @@ const Button = ({
             )}
         </>
     );
+
+    if (href && href.startsWith('/')) {
+        return (
+            <Link to={href} className={classNames} {...props}>
+                {buttonContent}
+            </Link>
+        );
+    }
 
     if (href) {
         return (
