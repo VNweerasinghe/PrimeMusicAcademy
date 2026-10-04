@@ -17,7 +17,7 @@ const Home = () => (
         <Header />
 
         <main id="main-content">
-            <section className="hero">
+            <section className="hero"> 
                 <div className="hero-content">
                     <div className="hero-text">
                         <p className="eyebrow">Music tuition in Colombo</p>
